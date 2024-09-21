@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 Control</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        button { padding: 10px; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Kontroler ESP32</h1>
+    <button onclick="sendData('on')">Włącz</button>
+    <button onclick="sendData('off')">Wyłącz</button>
+
+    <script>
+        const esp32Ip = 'http://192.168.0.100'; // Adres IP twojego ESP32
+
+        function sendData(action) {
+            fetch(`${esp32Ip}/${action}`)
+                .then(response => response.text())
+                .then(data => {
+                    console.log(`Odpowiedź z ESP32: ${data}`);
+                })
+                .catch(error => console.error('Błąd:', error));
+        }
+    </script>
+</body>
+</html>
