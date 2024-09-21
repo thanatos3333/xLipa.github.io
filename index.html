@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESP Communication</title>
+    <title>ESP32 Communication</title>
     <script>
         function sendRequest() {
-            fetch('http://192.168.1.55/button')  // Adres IP ESP32
+            // Ustawienie adresu IP ESP32 (lokalny adres IP wyświetlany na serial monitorze)
+            const esp32Url = 'http://192.168.1.55/button';  // Zastąp 192.168.1.55 właściwym IP ESP32
+
+            // Wysłanie żądania GET do ESP32
+            fetch(esp32Url)
                 .then(response => response.text())
-                .then(data => alert(data))       // Odczytanie i wyświetlenie odpowiedzi z ESP32
-                .catch(error => console.error('Błąd:', error));
+                .then(data => {
+                    console.log(data);  // Wyświetlenie odpowiedzi w konsoli
+                    alert(data);        // Wyświetlenie odpowiedzi w alercie
+                })
+                .catch(error => console.error('Błąd:', error));  // Obsługa błędów
         }
     </script>
 </head>
 <body>
-    <h1>ESP Communication</h1>
+    <h1>Komunikacja z ESP32</h1>
     <button onclick="sendRequest()">Naciśnij przycisk</button>
 </body>
 </html>
