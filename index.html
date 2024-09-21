@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESP32 Control</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        button { padding: 10px; margin: 10px; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Kontroler ESP32</h1>
-    <button onclick="sendData('on')">Włącz</button>
-    <button onclick="sendData('off')">Wyłącz</button>
+    <div class="container">
+        <h1>Kontroler ESP32</h1>
+        <button onclick="sendData('on')">Włącz</button>
+        <button onclick="sendData('off')">Wyłącz</button>
+    </div>
 
     <script>
         const esp32Ip = 'http://192.168.0.100'; // Adres IP twojego ESP32
