@@ -3,24 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESP32 Control</title>
+    <title>ESP Communication</title>
+    <script>
+        function sendRequest() {
+            fetch('https://192.168.1.55/button')  // Zmień na adres IP swojego ESP
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => console.error('Błąd:', error));
+        }
+    </script>
 </head>
 <body>
-    <h1>Kontroluj ESP32</h1>
-    <button id="button">Kliknij mnie</button>
-    <p id="response"></p>
-
-    <script>
-        document.getElementById("button").onclick = function() {
-            fetch('http://192.168.1.55/message') // Użyj HTTP
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("response").innerText = data;
-                })
-                .catch(error => {
-                    document.getElementById("response").innerText = "Wystąpił błąd: " + error;
-                });
-        };
-    </script>
+    <h1>ESP Communication</h1>
+    <button onclick="sendRequest()">Naciśnij przycisk</button>
 </body>
 </html>
