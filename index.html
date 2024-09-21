@@ -6,9 +6,9 @@
     <title>ESP Communication</title>
     <script>
         function sendRequest() {
-            fetch('https://192.168.1.55/button')  // Zmień na adres IP swojego ESP
+            fetch('http://192.168.1.55/button')  // Adres IP ESP32
                 .then(response => response.text())
-                .then(data => alert(data))
+                .then(data => alert(data))       // Odczytanie i wyświetlenie odpowiedzi z ESP32
                 .catch(error => console.error('Błąd:', error));
         }
     </script>
