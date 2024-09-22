@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktywacja ESP32</title>
+    <script>
+        function activateESP32() {
+            fetch('/activate')
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Aktywacja ESP32 z sukcesem!');
+                    } else {
+                        console.error('Błąd aktywacji ESP32:', response.status);
+                    }
+                })
+                .catch(error => {
+                    console.error('Wystąpił błąd:', error);
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Aktywacja ESP32</h1>
+    <button onclick="activateESP32()">Aktywuj ESP32</button>
+</body>
+</html>
