@@ -1,27 +1,87 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aktywacja ESP32</title>
-    <script>
-        function activateESP32() {
-            fetch('/activate')
-                .then(response => {
-                    if (response.ok) {
-                        console.log('Aktywacja ESP32 z sukcesem!');
-                    } else {
-                        console.error('Błąd aktywacji ESP32:', response.status);
-                    }
-                })
-                .catch(error => {
-                    console.error('Wystąpił błąd:', error);
-                });
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESP32 Activation</title>
+  <style>
+    /* General styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    /* Container for form and content */
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <h1>Aktywacja ESP32</h1>
-    <button onclick="activateESP32()">Aktywuj ESP32</button>
+  <div class="container">
+    <h1>ESP32 Activation</h1>
+    <p>You are logged in. Click the button below to activate the ESP32.</p>
+    <button onclick="activateESP32()">Activate ESP32</button>
+    <br><br>
+    <a href="/logout">Logout</a>
+  </div>
+
+  <script>
+    function activateESP32() {
+      fetch('/activate')
+        .then(response => {
+          if (response.ok) {
+          
+          } else {
+            alert('Failed to activate ESP32');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Failed to activate ESP32');
+        });
+    }
+  </script>
 </body>
 </html>
